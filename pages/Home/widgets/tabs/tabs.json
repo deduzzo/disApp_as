@@ -144,9 +144,54 @@
       "version": 1,
       "widgetId": "fl4qckzzqu",
       "widgetName": "Canvas3"
+    },
+    {
+      "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+      "bottomRow": 710,
+      "boxShadow": "{{appsmith.theme.boxShadow.appBoxShadow}}",
+      "canExtend": false,
+      "containerStyle": "none",
+      "detachFromLayout": true,
+      "dynamicBindingPathList": [
+        {
+          "key": "borderRadius"
+        },
+        {
+          "key": "boxShadow"
+        }
+      ],
+      "dynamicHeight": "AUTO_HEIGHT",
+      "dynamicTriggerPathList": [],
+      "flexLayers": [],
+      "isLoading": false,
+      "isVisible": true,
+      "key": "livzo5kuzt",
+      "leftColumn": 0,
+      "maxDynamicHeight": 9000,
+      "minDynamicHeight": 4,
+      "minHeight": 750,
+      "minWidth": 450,
+      "mobileBottomRow": 751,
+      "mobileLeftColumn": 0,
+      "mobileRightColumn": 1273.78125,
+      "mobileTopRow": 1,
+      "needsErrorInfo": false,
+      "parentColumnSpace": 1,
+      "parentId": "ftvx84j5nf",
+      "parentRowSpace": 1,
+      "renderMode": "CANVAS",
+      "responsiveBehavior": "fill",
+      "rightColumn": 1273.78125,
+      "tabId": "tabujf1k2y93e",
+      "tabName": "Scheda",
+      "topRow": 1,
+      "type": "CANVAS_WIDGET",
+      "version": 1,
+      "widgetId": "bv0tdxa49b",
+      "widgetName": "Canvas4"
     }
   ],
-  "defaultTab": "Tab 1",
+  "defaultTab": "{{ appsmith.store.selectedTab || \"Elenco\" }}",
   "dynamicBindingPathList": [
     {
       "key": "accentColor"
@@ -156,10 +201,18 @@
     },
     {
       "key": "boxShadow"
+    },
+    {
+      "key": "defaultTab"
     }
   ],
   "dynamicHeight": "FIXED",
-  "dynamicTriggerPathList": [],
+  "dynamicPropertyPathList": [],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onTabSelected"
+    }
+  ],
   "flexVerticalAlignment": "stretch",
   "isCanvas": true,
   "isLoading": false,
@@ -174,6 +227,7 @@
   "mobileRightColumn": 30,
   "mobileTopRow": 20,
   "needsErrorInfo": false,
+  "onTabSelected": "{{\nfunctions.aggiornaTabs()\n}}",
   "parentColumnSpace": 20.21875,
   "parentId": "0",
   "parentRowSpace": 10,
@@ -186,6 +240,7 @@
     "tab1": {
       "id": "tab1",
       "index": 0,
+      "isDuplicateLabel": false,
       "isVisible": true,
       "label": "Elenco",
       "positioning": "vertical",
@@ -193,7 +248,8 @@
     },
     "tab2": {
       "id": "tab2",
-      "index": 1,
+      "index": 2,
+      "isDuplicateLabel": false,
       "isVisible": true,
       "label": "Pagamenti",
       "positioning": "vertical",
@@ -201,15 +257,24 @@
     },
     "tabtmnqmvenm0": {
       "id": "tabtmnqmvenm0",
-      "index": 2,
+      "index": 3,
+      "isDuplicateLabel": false,
       "isVisible": true,
       "label": "ISEE",
       "widgetId": "fl4qckzzqu"
+    },
+    "tabujf1k2y93e": {
+      "id": "tabujf1k2y93e",
+      "index": 1,
+      "isDuplicateLabel": false,
+      "isVisible": true,
+      "label": "Scheda",
+      "widgetId": "bv0tdxa49b"
     }
   },
   "topRow": 8,
   "type": "TABS_WIDGET",
   "version": 3,
   "widgetId": "ftvx84j5nf",
-  "widgetName": "Tabs1"
+  "widgetName": "tabs"
 }

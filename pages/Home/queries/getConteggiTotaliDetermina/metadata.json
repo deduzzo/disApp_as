@@ -1,6 +1,6 @@
 {
   "gitSyncId": "670633b163d5690c2f531ce9_99ef7a62-d46d-444f-81bb-32967a296b6d",
-  "id": "Page1_getConteggiTotaliDetermina",
+  "id": "Home_getConteggiTotaliDetermina",
   "pluginId": "mysql-plugin",
   "pluginType": "DB",
   "unpublishedAction": {
@@ -27,9 +27,9 @@
         "key": "body"
       }
     ],
-    "executeOnLoad": true,
+    "executeOnLoad": false,
     "name": "getConteggiTotaliDetermina",
-    "pageId": "Page1",
+    "pageId": "Home",
     "userSetOnLoad": true
   }
 }

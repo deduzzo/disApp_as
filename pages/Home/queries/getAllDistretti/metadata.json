@@ -1,6 +1,6 @@
 {
   "gitSyncId": "670633b163d5690c2f531ce9_1ea941ed-3c70-44a5-825b-51baba823ecf",
-  "id": "Page1_getAllDistretti",
+  "id": "Home_getAllDistretti",
   "pluginId": "mysql-plugin",
   "pluginType": "DB",
   "unpublishedAction": {
@@ -24,7 +24,7 @@
     },
     "executeOnLoad": true,
     "name": "getAllDistretti",
-    "pageId": "Page1",
+    "pageId": "Home",
     "userSetOnLoad": false
   }
 }

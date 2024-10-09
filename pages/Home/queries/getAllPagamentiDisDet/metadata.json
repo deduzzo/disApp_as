@@ -1,6 +1,6 @@
 {
   "gitSyncId": "670633b163d5690c2f531ce9_19fc4bf0-7acb-4cf5-84fb-60b0aa8d571c",
-  "id": "Page1_getAllPagamentiDisDet",
+  "id": "Home_getAllPagamentiDisDet",
   "pluginId": "mysql-plugin",
   "pluginType": "DB",
   "unpublishedAction": {
@@ -27,9 +27,9 @@
         "key": "body"
       }
     ],
-    "executeOnLoad": true,
+    "executeOnLoad": false,
     "name": "getAllPagamentiDisDet",
-    "pageId": "Page1",
-    "userSetOnLoad": false
+    "pageId": "Home",
+    "userSetOnLoad": true
   }
 }

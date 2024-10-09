@@ -37,9 +37,10 @@
     "attivo",
     "gruppo",
     "distretto",
-    "iseeMaggiore"
+    "iseeMaggiore",
+    "customColumn1"
   ],
-  "columnUpdatedAt": 1728467964275,
+  "columnUpdatedAt": 1728472681345,
   "columnWidthMap": {
     "attivo": 94,
     "codice_fiscale": 182,
@@ -107,6 +108,15 @@
     },
     {
       "key": "primaryColumns.iseeMaggiore.buttonLabel"
+    },
+    {
+      "key": "primaryColumns.customColumn1.menuColor"
+    },
+    {
+      "key": "primaryColumns.customColumn1.borderRadius"
+    },
+    {
+      "key": "primaryColumns.customColumn1.boxShadow"
     }
   ],
   "dynamicPropertyPathList": [
@@ -118,9 +128,19 @@
     },
     {
       "key": "primaryColumns.iseeMaggiore.buttonColor"
+    },
+    {
+      "key": "primaryColumns.customColumn1.menuItems.menuItemhbx6l3r2mq.onClick"
     }
   ],
-  "dynamicTriggerPathList": [],
+  "dynamicTriggerPathList": [
+    {
+      "key": "primaryColumns.customColumn1.menuItems.menuItemhbx6l3r2mq.onClick"
+    },
+    {
+      "key": "onRowSelected"
+    }
+  ],
   "enableClientSideSearch": true,
   "flexVerticalAlignment": "start",
   "horizontalAlignment": "LEFT",
@@ -141,6 +161,7 @@
   "mobileRightColumn": 34,
   "mobileTopRow": 28,
   "needsErrorInfo": false,
+  "onRowSelected": "{{storeValue('selectedRowId', tabella_elenco.selectedRow.id);\nstoreValue('selectedTab', 'Scheda')}}",
   "originalBottomRow": 56,
   "originalTopRow": 28,
   "parentId": "r74ifihij8",
@@ -151,11 +172,11 @@
       "alias": "attivo",
       "allowCellWrapping": false,
       "allowSameOptionsInNewRow": true,
-      "buttonColor": "{{Table2.processedTableData.map((currentRow, currentIndex) => ( currentRow.attivo ? \"blue\" : \"red\"))}}",
-      "buttonLabel": "{{Table2.processedTableData.map((currentRow, currentIndex) => (  currentRow.attivo ? \"Attivo\" : \"Sospeso\" ))}}",
+      "buttonColor": "{{tabella_elenco.processedTableData.map((currentRow, currentIndex) => ( currentRow.attivo ? \"blue\" : \"red\"))}}",
+      "buttonLabel": "{{tabella_elenco.processedTableData.map((currentRow, currentIndex) => (  currentRow.attivo ? \"Attivo\" : \"Sospeso\" ))}}",
       "cellBackground": "",
       "columnType": "button",
-      "computedValue": "{{Table2.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"attivo\"]))}}",
+      "computedValue": "{{tabella_elenco.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"attivo\"]))}}",
       "currencyCode": "USD",
       "customAlias": "",
       "decimals": 0,
@@ -163,7 +184,7 @@
       "enableSort": true,
       "fontStyle": "",
       "horizontalAlignment": "LEFT",
-      "iconName": "{{Table2.processedTableData.map((currentRow, currentIndex) => ( currentRow.attivo ? \"tick-circle\" : \"ban-circle\"))}}",
+      "iconName": "{{tabella_elenco.processedTableData.map((currentRow, currentIndex) => ( currentRow.attivo ? \"tick-circle\" : \"ban-circle\"))}}",
       "id": "attivo",
       "index": 3,
       "isCellEditable": false,
@@ -192,7 +213,7 @@
       "allowSameOptionsInNewRow": true,
       "cellBackground": "",
       "columnType": "text",
-      "computedValue": "{{Table2.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"codice_fiscale\"]))}}",
+      "computedValue": "{{tabella_elenco.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"codice_fiscale\"]))}}",
       "currencyCode": "USD",
       "decimals": 0,
       "enableFilter": true,
@@ -220,13 +241,71 @@
       "verticalAlignment": "CENTER",
       "width": 150
     },
+    "customColumn1": {
+      "alias": "Azioni",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "borderRadius": "{{tabella_elenco.processedTableData.map((currentRow, currentIndex) => ( (appsmith.theme.borderRadius.appBorderRadius)))}}",
+      "boxShadow": "{{tabella_elenco.processedTableData.map((currentRow, currentIndex) => ( \"none\"))}}",
+      "buttonStyle": "rgb(3, 179, 101)",
+      "columnType": "menuButton",
+      "computedValue": "",
+      "currencyCode": "USD",
+      "customAlias": "",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "horizontalAlignment": "LEFT",
+      "id": "customColumn1",
+      "index": 7,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": true,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": true,
+      "label": "Azioni",
+      "labelColor": "#FFFFFF",
+      "menuButtonLabel": "Azioni..",
+      "menuColor": "{{tabella_elenco.processedTableData.map((currentRow, currentIndex) => ( (appsmith.theme.colors.primaryColor)))}}",
+      "menuItems": {
+        "menuItemayiutfqwcf": {
+          "id": "menuItemayiutfqwcf",
+          "index": 1,
+          "isDisabled": false,
+          "isVisible": true,
+          "label": "Aggiorna ISEE",
+          "widgetId": "ywlgzr5pxo"
+        },
+        "menuItemhbx6l3r2mq": {
+          "id": "menuItemhbx6l3r2mq",
+          "index": 0,
+          "isDisabled": false,
+          "isVisible": true,
+          "label": "Visualizza Scheda",
+          "onClick": "{{ storeValue('selectedRowId',currentRow.id);\nstoreValue(\"selectedTab\",\"Scheda\") }}",
+          "widgetId": "zpl7pxm92s"
+        }
+      },
+      "menuItemsSource": "STATIC",
+      "notation": "standard",
+      "originalId": "customColumn1",
+      "sticky": "",
+      "textSize": "0.875rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
     "distretto": {
       "alias": "distretto",
       "allowCellWrapping": false,
       "allowSameOptionsInNewRow": true,
       "cellBackground": "",
       "columnType": "text",
-      "computedValue": "{{Table2.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"distretto\"]))}}",
+      "computedValue": "{{tabella_elenco.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"distretto\"]))}}",
       "currencyCode": "USD",
       "decimals": 0,
       "enableFilter": true,
@@ -260,7 +339,7 @@
       "allowSameOptionsInNewRow": true,
       "cellBackground": "",
       "columnType": "text",
-      "computedValue": "{{Table2.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"gruppo\"]))}}",
+      "computedValue": "{{tabella_elenco.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"gruppo\"]))}}",
       "currencyCode": "USD",
       "decimals": 0,
       "enableFilter": true,
@@ -294,7 +373,7 @@
       "allowSameOptionsInNewRow": true,
       "cellBackground": "",
       "columnType": "number",
-      "computedValue": "{{Table2.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"id\"]))}}",
+      "computedValue": "{{tabella_elenco.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"id\"]))}}",
       "currencyCode": "USD",
       "decimals": 0,
       "enableFilter": true,
@@ -326,13 +405,13 @@
       "alias": "iseeMaggiore",
       "allowCellWrapping": false,
       "allowSameOptionsInNewRow": true,
-      "borderRadius": "{{Table2.processedTableData.map((currentRow, currentIndex) => ( (appsmith.theme.borderRadius.appBorderRadius)))}}",
-      "boxShadow": "{{Table2.processedTableData.map((currentRow, currentIndex) => ( \"none\"))}}",
-      "buttonColor": "{{Table2.processedTableData.map((currentRow, currentIndex) => ( currentRow.iseeMaggiore ? \"orange\" : \"blue\"))}}",
-      "buttonLabel": "{{Table2.processedTableData.map((currentRow, currentIndex) => ( currentRow.iseeMaggiore ? \"> Maggiore 25\" : \"< Minore 25\"))}}",
+      "borderRadius": "{{tabella_elenco.processedTableData.map((currentRow, currentIndex) => ( (appsmith.theme.borderRadius.appBorderRadius)))}}",
+      "boxShadow": "{{tabella_elenco.processedTableData.map((currentRow, currentIndex) => ( \"none\"))}}",
+      "buttonColor": "{{tabella_elenco.processedTableData.map((currentRow, currentIndex) => ( currentRow.iseeMaggiore ? \"orange\" : \"blue\"))}}",
+      "buttonLabel": "{{tabella_elenco.processedTableData.map((currentRow, currentIndex) => ( currentRow.iseeMaggiore ? \"> Maggiore 25\" : \"< Minore 25\"))}}",
       "cellBackground": "",
       "columnType": "button",
-      "computedValue": "{{Table2.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"iseeMaggiore\"]))}}",
+      "computedValue": "{{tabella_elenco.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"iseeMaggiore\"]))}}",
       "currencyCode": "USD",
       "customAlias": "",
       "decimals": 0,
@@ -367,7 +446,7 @@
       "allowSameOptionsInNewRow": true,
       "cellBackground": "",
       "columnType": "text",
-      "computedValue": "{{Table2.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"nominativo\"]))}}",
+      "computedValue": "{{tabella_elenco.processedTableData.map((currentRow, currentIndex) => ( currentRow[\"nominativo\"]))}}",
       "currencyCode": "USD",
       "decimals": 0,
       "enableFilter": true,
@@ -408,5 +487,5 @@
   "version": 2,
   "verticalAlignment": "CENTER",
   "widgetId": "sywizh4lzx",
-  "widgetName": "Table2"
+  "widgetName": "tabella_elenco"
 }
