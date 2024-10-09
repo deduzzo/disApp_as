@@ -1,0 +1,24 @@
+SELECT 
+    i.id, 
+    CONCAT(a.cognome, ' ', a.nome) AS nominativo, 
+    a.codice_fiscale, 
+    i.attivo,
+		g.descrizione_gruppo as gruppo,
+		d.nome as distretto,
+    isee.maggiore_25mila as iseeMaggiore
+FROM 
+    istanza i
+JOIN 
+    anagrafica a ON a.id = i.id_anagrafica_disabile
+JOIN 
+    gruppo g ON i.id_gruppo = g.id
+JOIN 
+    distretto d ON i.id_distretto = d.id
+LEFT JOIN 
+    (SELECT id_istanza, maggiore_25mila
+     FROM isee
+     WHERE valido = true
+    ) isee ON isee.id_istanza = i.id
+WHERE 
+    i.id_distretto = {{distretto_select.selectedOptionValue}} 
+    AND i.chiuso = false order by i.attivo DESC, nominativo ASC
