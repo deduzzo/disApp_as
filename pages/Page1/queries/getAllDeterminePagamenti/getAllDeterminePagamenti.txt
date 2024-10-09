@@ -1,1 +1,1 @@
-SELECT * FROM determina where storico = false order by id DESC
+SELECT * FROM determina where storico = false order by id DESC LIMIT 5

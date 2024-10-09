@@ -95,6 +95,9 @@
   "dynamicPropertyPathList": [
     {
       "key": "isVisible"
+    },
+    {
+      "key": "tableData"
     }
   ],
   "dynamicTriggerPathList": [],
@@ -118,8 +121,8 @@
   "mobileRightColumn": 34,
   "mobileTopRow": 17,
   "needsErrorInfo": false,
-  "originalBottomRow": 105,
-  "originalTopRow": 48,
+  "originalBottomRow": 66,
+  "originalTopRow": 13,
   "parentId": "yikla7x92g",
   "parentRowSpace": 10,
   "primaryColumnId": "id",
@@ -402,9 +405,9 @@
   "responsiveBehavior": "fill",
   "rightColumn": 63,
   "searchKey": "",
-  "tableData": "{{getAllPagamentiDisDet.data}}",
+  "tableData": "{{ getAllPagamentiDisDet.data }}",
   "textSize": "0.875rem",
-  "topRow": 8,
+  "topRow": 12,
   "totalRecordsCount": 0,
   "type": "TABLE_WIDGET_V2",
   "version": 2,
