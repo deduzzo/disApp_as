@@ -53,7 +53,7 @@
   "mobileRightColumn": 20,
   "mobileTopRow": 1,
   "needsErrorInfo": false,
-  "onOptionChange": "{{\n}}",
+  "onOptionChange": "{{ functions.initLoad()\n}}",
   "optionLabel": "label",
   "optionValue": "value",
   "parentId": "0",
