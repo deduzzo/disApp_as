@@ -1,0 +1,1 @@
+SELECT * FROM determina where storico = false order by id DESC
