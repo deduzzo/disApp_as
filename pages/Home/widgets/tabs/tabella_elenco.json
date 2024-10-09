@@ -56,9 +56,6 @@
   "delimiter": ",",
   "dynamicBindingPathList": [
     {
-      "key": "tableData"
-    },
-    {
       "key": "accentColor"
     },
     {
@@ -117,6 +114,12 @@
     },
     {
       "key": "primaryColumns.customColumn1.boxShadow"
+    },
+    {
+      "key": "isVisible"
+    },
+    {
+      "key": "tableData"
     }
   ],
   "dynamicPropertyPathList": [
@@ -131,6 +134,12 @@
     },
     {
       "key": "primaryColumns.customColumn1.menuItems.menuItemhbx6l3r2mq.onClick"
+    },
+    {
+      "key": "isVisible"
+    },
+    {
+      "key": "tableData"
     }
   ],
   "dynamicTriggerPathList": [
@@ -147,7 +156,7 @@
   "inlineEditingSaveOption": "ROW_LEVEL",
   "isLoading": false,
   "isSortable": true,
-  "isVisible": true,
+  "isVisible": "{{!getAllIstanzeDistretto.isLoading}}",
   "isVisibleDownload": true,
   "isVisibleFilters": false,
   "isVisiblePagination": true,
@@ -161,7 +170,7 @@
   "mobileRightColumn": 34,
   "mobileTopRow": 28,
   "needsErrorInfo": false,
-  "onRowSelected": "{{storeValue('selectedRowId', tabella_elenco.selectedRow.id);\nstoreValue('selectedTab', 'Scheda')}}",
+  "onRowSelected": "",
   "originalBottomRow": 56,
   "originalTopRow": 28,
   "parentId": "r74ifihij8",

@@ -23,6 +23,9 @@
   "dynamicPropertyPathList": [
     {
       "key": "sourceData"
+    },
+    {
+      "key": "onOptionChange"
     }
   ],
   "dynamicTriggerPathList": [
@@ -50,7 +53,7 @@
   "mobileRightColumn": 20,
   "mobileTopRow": 1,
   "needsErrorInfo": false,
-  "onOptionChange": "{{functions.aggiornaQueryTabs();}}",
+  "onOptionChange": "{{functions.aggiornaQueryTabs()}}",
   "optionLabel": "label",
   "optionValue": "value",
   "parentId": "0",

@@ -1,7 +1,8 @@
 export default {
 	aggiornaQueryTabs() {
+		getConteggiTotaliDetermina.run();
 		getAllPagamentiDisDet.run();
-		getConteggiTotaliDetermina.run()
+		getAllIstanzeDistretto.run();
 	},
 	aggiornaTabs() {
 		storeValue('selectedTab',tabs.selectedTab);
