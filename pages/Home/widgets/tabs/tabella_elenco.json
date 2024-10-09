@@ -140,6 +140,9 @@
     },
     {
       "key": "tableData"
+    },
+    {
+      "key": "onRowSelected"
     }
   ],
   "dynamicTriggerPathList": [
@@ -170,7 +173,7 @@
   "mobileRightColumn": 34,
   "mobileTopRow": 28,
   "needsErrorInfo": false,
-  "onRowSelected": "",
+  "onRowSelected": "{{storeValue(\"selectedRowId\",tabella_elenco.selectedRow.id)}}",
   "originalBottomRow": 56,
   "originalTopRow": 28,
   "parentId": "r74ifihij8",

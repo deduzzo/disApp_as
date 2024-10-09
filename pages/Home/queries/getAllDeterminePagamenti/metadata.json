@@ -23,9 +23,9 @@
       "pluginId": "mysql-plugin"
     },
     "dynamicBindingPathList": [],
-    "executeOnLoad": true,
+    "executeOnLoad": false,
     "name": "getAllDeterminePagamenti",
     "pageId": "Home",
-    "userSetOnLoad": false
+    "userSetOnLoad": true
   }
 }

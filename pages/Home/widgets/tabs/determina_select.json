@@ -23,9 +23,6 @@
   "dynamicPropertyPathList": [
     {
       "key": "sourceData"
-    },
-    {
-      "key": "onOptionChange"
     }
   ],
   "dynamicTriggerPathList": [
@@ -53,7 +50,7 @@
   "mobileRightColumn": 20,
   "mobileTopRow": 9,
   "needsErrorInfo": false,
-  "onOptionChange": "{{functions.aggiornaQueryTabs()}}",
+  "onOptionChange": "{{getAllPagamentiDisDet.run()}}",
   "optionLabel": "label",
   "optionValue": "value",
   "parentId": "yikla7x92g",

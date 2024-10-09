@@ -227,7 +227,7 @@
   "mobileRightColumn": 30,
   "mobileTopRow": 20,
   "needsErrorInfo": false,
-  "onTabSelected": "{{functions.aggiornaTabs();}}",
+  "onTabSelected": "{{functions.cangeTabs();}}",
   "parentColumnSpace": 20.21875,
   "parentId": "0",
   "parentRowSpace": 10,

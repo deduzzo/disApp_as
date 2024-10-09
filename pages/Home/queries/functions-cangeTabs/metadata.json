@@ -1,6 +1,6 @@
 {
-  "gitSyncId": "670633b163d5690c2f531ce9_86cfc4aa-4be1-4aa4-94c2-4102fc3658d4",
-  "id": "Home_functions.aggiornaQueryTabs",
+  "gitSyncId": "670633b163d5690c2f531ce9_2449d227-b25c-4a36-ae99-920c2213a9d7",
+  "id": "Home_functions.cangeTabs",
   "pluginId": "js-plugin",
   "pluginType": "JS",
   "unpublishedAction": {
@@ -22,10 +22,10 @@
         "key": "body"
       }
     ],
-    "executeOnLoad": true,
-    "fullyQualifiedName": "functions.aggiornaQueryTabs",
-    "name": "aggiornaQueryTabs",
+    "executeOnLoad": false,
+    "fullyQualifiedName": "functions.cangeTabs",
+    "name": "cangeTabs",
     "pageId": "Home",
-    "userSetOnLoad": true
+    "userSetOnLoad": false
   }
 }
