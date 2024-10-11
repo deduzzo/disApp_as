@@ -1,11 +1,11 @@
 {
-  "gitSyncId": "670633b163d5690c2f531ce9_1ea941ed-3c70-44a5-825b-51baba823ecf",
-  "id": "Home_getAllDistretti",
+  "gitSyncId": "670905f7e246ae0ac15265ec_3c3aebe7-19aa-410f-a66b-c97135ad4328",
+  "id": "Home_getLastValidIsee",
   "pluginId": "mysql-plugin",
   "pluginType": "DB",
   "unpublishedAction": {
     "actionConfiguration": {
-      "body": "SELECT * FROM distretto LIMIT 10;",
+      "body": "SELECT * FROM isee where id_istanza = {{ appsmith.store.selectedRowId }} AND valido = true AND verificato = true LIMIT 1",
       "encodeParamsToggle": true,
       "paginationType": "NONE",
       "pluginSpecifiedTemplates": [
@@ -22,8 +22,13 @@
       "name": "disabili_db_prod",
       "pluginId": "mysql-plugin"
     },
+    "dynamicBindingPathList": [
+      {
+        "key": "body"
+      }
+    ],
     "executeOnLoad": true,
-    "name": "getAllDistretti",
+    "name": "getLastValidIsee",
     "pageId": "Home",
     "userSetOnLoad": true
   }

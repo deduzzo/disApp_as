@@ -1,0 +1,1 @@
+SELECT * FROM isee where id_istanza = {{ appsmith.store.selectedRowId }} AND valido = true AND verificato = true LIMIT 1

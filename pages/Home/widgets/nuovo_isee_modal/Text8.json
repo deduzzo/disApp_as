@@ -1,7 +1,7 @@
 {
   "animateLoading": true,
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-  "bottomRow": 11,
+  "bottomRow": 13,
   "dynamicBindingPathList": [
     {
       "key": "truncateButtonColor"
@@ -14,42 +14,50 @@
     },
     {
       "key": "text"
+    },
+    {
+      "key": "textColor"
     }
   ],
   "dynamicHeight": "AUTO_HEIGHT",
+  "dynamicPropertyPathList": [
+    {
+      "key": "textColor"
+    }
+  ],
   "dynamicTriggerPathList": [],
   "fontFamily": "{{appsmith.theme.fontFamily.appFont}}",
   "fontSize": "1rem",
   "fontStyle": "BOLD",
   "isLoading": false,
   "isVisible": true,
-  "key": "v76vh9zo8v",
-  "leftColumn": 15,
+  "key": "u59cwyvs9p",
+  "leftColumn": 22,
   "maxDynamicHeight": 9000,
   "minDynamicHeight": 4,
   "minWidth": 450,
-  "mobileBottomRow": 11,
-  "mobileLeftColumn": 0,
-  "mobileRightColumn": 11,
-  "mobileTopRow": 7,
+  "mobileBottomRow": 14,
+  "mobileLeftColumn": 1,
+  "mobileRightColumn": 17,
+  "mobileTopRow": 10,
   "needsErrorInfo": false,
-  "originalBottomRow": 11,
-  "originalTopRow": 7,
+  "originalBottomRow": 14,
+  "originalTopRow": 9,
   "overflow": "NONE",
-  "parentColumnSpace": 19.59033203125,
-  "parentId": "yikla7x92g",
+  "parentColumnSpace": 6.9375,
+  "parentId": "ifjocire5p",
   "parentRowSpace": 10,
   "renderMode": "CANVAS",
   "responsiveBehavior": "fill",
-  "rightColumn": 24,
+  "rightColumn": 38,
   "shouldTruncate": false,
-  "text": "{{getConteggiTotaliDetermina.data[0].totale.toLocaleString('it-IT', { style: 'currency', currency: 'EUR' })}}\n",
+  "text": "{{tipo_nuovo_isee_select.selectedOptionLabel}}",
   "textAlign": "LEFT",
-  "textColor": "#cf4d10",
-  "topRow": 7,
+  "textColor": "{{tipo_nuovo_isee_select.selectedOptionValue === \"minore\" ? \"blue\" : \"red\"}}",
+  "topRow": 9,
   "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
   "type": "TEXT_WIDGET",
   "version": 1,
-  "widgetId": "zue8cwtv8h",
-  "widgetName": "quanti_determina_txtCopy"
+  "widgetId": "zb56sgndiu",
+  "widgetName": "Text8"
 }

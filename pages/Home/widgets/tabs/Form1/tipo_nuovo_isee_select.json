@@ -2,16 +2,10 @@
   "accentColor": "{{appsmith.theme.colors.primaryColor}}",
   "animateLoading": true,
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-  "bottomRow": 8,
+  "bottomRow": 14,
   "boxShadow": "none",
-  "defaultOptionValue": "{{ ((options, serverSideFiltering) => ( \n            {\n              label: distretto_select.options[0].label,\n              value: distretto_select.options[0].value\n            }\n          ))(distretto_select.options, distretto_select.serverSideFiltering) }}",
+  "defaultOptionValue": "",
   "dynamicBindingPathList": [
-    {
-      "key": "sourceData"
-    },
-    {
-      "key": "defaultOptionValue"
-    },
     {
       "key": "accentColor"
     },
@@ -23,9 +17,6 @@
   "dynamicPropertyPathList": [
     {
       "key": "sourceData"
-    },
-    {
-      "key": "onOptionChange"
     }
   ],
   "dynamicTriggerPathList": [
@@ -38,35 +29,39 @@
   "isLoading": false,
   "isRequired": true,
   "isVisible": true,
-  "key": "c3frm9nmw7",
+  "key": "3uzf5dquys",
   "labelAlignment": "left",
   "labelPosition": "Top",
-  "labelText": "Distretto",
+  "labelText": "Tipo ISEE",
+  "labelTextColor": "",
   "labelTextSize": "0.875rem",
   "labelWidth": 5,
-  "leftColumn": 1,
+  "leftColumn": 0,
   "maxDynamicHeight": 9000,
   "minDynamicHeight": 4,
   "minWidth": 450,
-  "mobileBottomRow": 8,
+  "mobileBottomRow": 12,
   "mobileLeftColumn": 0,
   "mobileRightColumn": 20,
-  "mobileTopRow": 1,
+  "mobileTopRow": 5,
   "needsErrorInfo": false,
-  "onOptionChange": "{{ functions.initLoad()\n}}",
-  "optionLabel": "label",
-  "optionValue": "value",
-  "parentId": "0",
+  "onOptionChange": "",
+  "optionLabel": "name",
+  "optionValue": "code",
+  "originalBottomRow": 12,
+  "originalTopRow": 5,
+  "parentColumnSpace": 6.777862548828125,
+  "parentId": "z6tp28zzzm",
   "parentRowSpace": 10,
-  "placeholderText": "Select option",
+  "placeholderText": "Seleziona isee..",
   "renderMode": "CANVAS",
   "responsiveBehavior": "fill",
-  "rightColumn": 17,
+  "rightColumn": 31,
   "serverSideFiltering": false,
-  "sourceData": "{{getAllDistretti.data.map( (obj) =>{ return  {'label': obj.nome, 'value': obj.id } })}}",
-  "topRow": 1,
+  "sourceData": "[\n  {\n    \"name\": \"< MINORE 25mila€\",\n    \"code\": \"minore\"\n  },\n  {\n    \"name\": \"> MAGGIORE 25mila€\",\n    \"code\": \"maggiore\"\n  }\n]",
+  "topRow": 7,
   "type": "SELECT_WIDGET",
   "version": 1,
-  "widgetId": "h45b6rxhgx",
-  "widgetName": "distretto_select"
+  "widgetId": "wqujadayim",
+  "widgetName": "tipo_nuovo_isee_select"
 }
