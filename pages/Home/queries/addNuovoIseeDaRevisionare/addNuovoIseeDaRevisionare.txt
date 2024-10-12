@@ -1,0 +1,8 @@
+insert into isee (id_istanza, verificato,valido,anno_riferimento,data_presentazione, maggiore_25mila) values (
+	{{disabile_isee_select.selectedOptionValue}},
+	false,
+	false,
+	{{anno_nuovo_isee_select.selectedOptionValue}},
+	{{moment(nuovo_isee_data_pres_dp.selectedDate).format('YYYY-MM-DD')}},
+	{{tipo_nuovo_isee_select.selectedOptionValue === "maggiore"}}
+)

@@ -1,1 +1,1 @@
-SELECT * FROM isee where id_istanza = {{ appsmith.store.selectedRowId }} order by verificato, valido, data_presentazione
+SELECT * FROM isee where id_istanza = {{ appsmith.store.selectedRowId }} order by verificato DESC, valido DESC, data_presentazione ASC

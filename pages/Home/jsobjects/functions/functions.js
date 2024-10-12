@@ -14,6 +14,7 @@ export default {
 				break;
 			case "ISEE":
 				await getIseeIstanza.run();
+				await getLastValidIsee.run()
 				break;
 		}
 	},
@@ -46,7 +47,7 @@ export default {
 		if ( 
 			(tipo_nuovo_isee_select.selectedOptionValue === "minore" && iseeCorrente["maggiore_25mila"] === true) || 
 			(tipo_nuovo_isee_select.selectedOptionValue === "maggiore" && iseeCorrente["maggiore_25mila"] === false) )
-			avverti_isee_txt.setText("ATTENZIONE, l'ISEE corrente è diverso da quello considerato al momento, pertanto verranno effettuati i ricalcoli per l'anno corrente.");
+			avverti_isee_txt.setText("ATTENZIONE, l'ISEE corrente è diverso da quello considerato al momento, pertanto verranno effettuati i ricalcoli per un eventuale recupero/rimborso per l'anno corrente.");
 			else 
 				avverti_isee_txt.setText("");
 		}

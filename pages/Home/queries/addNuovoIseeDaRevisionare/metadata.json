@@ -1,11 +1,11 @@
 {
-  "gitSyncId": "670905f7e246ae0ac15265ec_b236c14e-5747-4a9f-ae2f-ed6ec8a2a6a5",
-  "id": "Home_getIseeIstanza",
+  "gitSyncId": "670905f7e246ae0ac15265ec_03212623-c9f7-449d-af6d-db57f9a0086d",
+  "id": "Home_addNuovoIseeDaRevisionare",
   "pluginId": "mysql-plugin",
   "pluginType": "DB",
   "unpublishedAction": {
     "actionConfiguration": {
-      "body": "SELECT * FROM isee where id_istanza = {{ appsmith.store.selectedRowId }} order by verificato DESC, valido DESC, data_presentazione ASC",
+      "body": "insert into isee (id_istanza, verificato,valido,anno_riferimento,data_presentazione, maggiore_25mila) values (\n\t{{disabile_isee_select.selectedOptionValue}},\n\tfalse,\n\tfalse,\n\t{{anno_nuovo_isee_select.selectedOptionValue}},\n\t{{moment(nuovo_isee_data_pres_dp.selectedDate).format('YYYY-MM-DD')}},\n\t{{tipo_nuovo_isee_select.selectedOptionValue === \"maggiore\"}}\n)",
       "encodeParamsToggle": true,
       "paginationType": "NONE",
       "pluginSpecifiedTemplates": [
@@ -27,8 +27,8 @@
         "key": "body"
       }
     ],
-    "executeOnLoad": true,
-    "name": "getIseeIstanza",
+    "executeOnLoad": false,
+    "name": "addNuovoIseeDaRevisionare",
     "pageId": "Home",
     "userSetOnLoad": false
   }
