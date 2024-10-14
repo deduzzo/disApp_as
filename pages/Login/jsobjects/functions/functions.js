@@ -22,7 +22,7 @@ export default {
 	},
 
 	createToken: (user) => {
-		return jsonwebtoken.sign(user, this.secret, {expiresIn: 60*60});
+		return jsonwebtoken.sign(user, this.secret, {expiresIn: 60 * 60});
 	},
 
 	signIn: async (userNonNecessarioNelDominio = false) => {
@@ -61,7 +61,7 @@ export default {
 		}
 		if (loginOk) {
 			showAlert("Login ok, accesso in corso..","success");
-			storeValue("token",this.createToken(user));
+			storeValue("token",this.createToken({data: user}));
 			navigateTo("Home");
 		}
 		else

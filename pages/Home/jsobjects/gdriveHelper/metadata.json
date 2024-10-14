@@ -1,0 +1,36 @@
+{
+  "gitSyncId": "670cacb363d5690c2f531d49_31a89b08-7c5a-4dc8-bb23-55ed4e94d644",
+  "id": "Home_gdriveHelper",
+  "unpublishedCollection": {
+    "name": "gdriveHelper",
+    "pageId": "Home",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "variables": [
+      {
+        "name": "PATTO_DI_CURA",
+        "value": "\"patto-di-cura\""
+      },
+      {
+        "name": "ISEE",
+        "value": "\"isee\""
+      },
+      {
+        "name": "DATI_BANCARI",
+        "value": "\"dati-bancari\""
+      },
+      {
+        "name": "SEPERATOR",
+        "value": "\"#\""
+      },
+      {
+        "name": "dataPath",
+        "value": "\"1wmqEh-WKeaem6pLyRwwhQEBmd1qnZKpc\""
+      },
+      {
+        "name": "fileType",
+        "value": "{\n  PATTO_DI_CURA: \"Patto di Cura\"\n}"
+      }
+    ]
+  }
+}

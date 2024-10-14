@@ -1,0 +1,5 @@
+{
+  "name": "NomeDellaCartella",
+  "mimeType": "application/vnd.google-apps.folder",
+  "parents": ["{{ gdriveHelper.dataPath}}"]
+}
