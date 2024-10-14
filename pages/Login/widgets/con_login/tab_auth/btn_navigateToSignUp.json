@@ -15,11 +15,7 @@
       "key": "borderRadius"
     }
   ],
-  "dynamicPropertyPathList": [
-    {
-      "key": "onClick"
-    }
-  ],
+  "dynamicPropertyPathList": [],
   "dynamicTriggerPathList": [
     {
       "key": "onClick"
@@ -39,7 +35,7 @@
   "mobileLeftColumn": 41,
   "mobileRightColumn": 57,
   "mobileTopRow": 91,
-  "onClick": "{{functions.setDefaultTab('Sign Up')}}",
+  "onClick": "{{showAlert('Per ottenere l\\'abilitazione delle proprie credenziali di dominio o ricevere credenziali esterne è necessario inviare richiesta via mail a roberto.dedomenico@asp.messina.it', 'warning');}}",
   "originalBottomRow": 58,
   "originalTopRow": 54,
   "parentColumnSpace": 19.8125,

@@ -2,11 +2,12 @@ export default {
 
 	defaultTab: 'Sign In',
 	secret: "UxZ>69'[Tu<6",
-	
+	scope: "disabili",
+
 	setDefaultTab: (newTab) => {
 		this.defaultTab = newTab;
 	},
-	
+
 	showAlertIfExist: () => {
 		if (appsmith.URL.queryParams.msg)
 			showAlert(appsmith.URL.queryParams.msg,"info");
@@ -61,13 +62,18 @@ export default {
 		if (loginOk) {
 			showAlert("Login ok, accesso in corso..","success");
 			storeValue("token",this.createToken(user));
-			navigateTo("HomePage");
+			navigateTo("Home");
 		}
 		else
 			showAlert(error, "error");
 	},
 
-	register: async () => {
-
+	verifyToken: (token) => {
+		try {
+			const decoded = jsonwebtoken.verify(token, this.secret);
+			return { valid: true, decoded };
+		} catch (err) {
+			return { valid: false, error: err.message };
+		}
 	},
 }

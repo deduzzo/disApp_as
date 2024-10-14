@@ -6,6 +6,11 @@
     "pageId": "Home",
     "pluginId": "js-plugin",
     "pluginType": "JS",
-    "variables": []
+    "variables": [
+      {
+        "name": "secret",
+        "value": "\"UxZ>69'[Tu<6\""
+      }
+    ]
   }
 }
