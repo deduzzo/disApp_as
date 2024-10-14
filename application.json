@@ -19,10 +19,6 @@
   "pages": [
     {
       "id": "Home",
-      "isDefault": false
-    },
-    {
-      "id": "Login",
       "isDefault": true
     }
   ],
