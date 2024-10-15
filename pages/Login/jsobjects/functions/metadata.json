@@ -1,0 +1,24 @@
+{
+  "gitSyncId": "670cacb363d5690c2f531d49_26d9b345-d4c0-4353-a46f-bc67c94edf68",
+  "id": "Login_functions",
+  "unpublishedCollection": {
+    "name": "functions",
+    "pageId": "Login",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "variables": [
+      {
+        "name": "defaultTab",
+        "value": "'Sign In'"
+      },
+      {
+        "name": "secret",
+        "value": "\"UxZ>69'[Tu<6\""
+      },
+      {
+        "name": "scope",
+        "value": "\"disabili\""
+      }
+    ]
+  }
+}
