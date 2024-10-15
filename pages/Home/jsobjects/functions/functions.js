@@ -63,7 +63,7 @@ export default {
 		if (appsmith.store.token !== null) {
 			try {
 				const decoded = jsonwebtoken.verify(appsmith.store.token, this.secret);
-				console.log("decoded:");
+				//console.log("decoded:");
 				//console.log(decoded);
 				const newToken = this.createToken({data: decoded.data});
 				//console.log("new token");

@@ -22,7 +22,7 @@
         "key": "body"
       }
     ],
-    "executeOnLoad": false,
+    "executeOnLoad": true,
     "fullyQualifiedName": "functions.verifyTokenExpires",
     "name": "verifyTokenExpires",
     "pageId": "Home",
