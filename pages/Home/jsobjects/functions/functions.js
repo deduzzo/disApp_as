@@ -2,6 +2,8 @@ export default {
 	secret: "UxZ>69'[Tu<6",
 	allFilesIstanza: [],
 	folderIdIstanzaSelezionata: null,
+	userData: null,
+	distrettiDataSelect: [],
 
 	async aggiornaTabs() {
 		storeValue('selectedTab',tabs.selectedTab);
@@ -28,12 +30,27 @@ export default {
 		storeValue('selectedTab',"Elenco");
 		storeValue("selectedRowId",null)
 		this.allFilesIstanza = [];
+		this.verifyTokenExpires();
+		this.distrettiDataSelect = this.getDistrettiMap();
 		//await getAllDistretti.run();
 		//await getAllDistretti.run();
-		await getAllIstanzeDistretto.run();
+		await getAllIstanzeDistretto.run({distretto: this.userData.distretto});
 		await getAllDeterminePagamenti.run();
 		await getIseeIstanza.run();
 		await getLastValidIsee.run();
+	},
+	getDistrettiMap() {
+		if (functions.userData.distretto === undefined || functions.userData.distretto === null || functions.userData.distretto === "" ) {
+			return [{ label: "** TUTTI **", value: "all" }, ...getAllDistretti.data.map((obj) => {
+				return { label: obj.nome, value: obj.id };
+			})];
+		}
+		else
+			return getAllDistretti.data
+				.filter((obj) => obj.id === this.userData.distretto)
+				.map((obj) => {
+				return { label: obj.nome, value: obj.id };
+			});
 	},
 	cangeTabs() {
 		this.aggiornaTabs();
@@ -69,6 +86,11 @@ export default {
 				const decoded = jsonwebtoken.verify(appsmith.store.token, this.secret);
 				//console.log("decoded:");
 				//console.log(decoded);
+				this.userData = {
+					username: decoded.data.user, 
+					distretto: decoded.data.id_distretto,
+					mail: decoded.data.mail
+				}
 				const newToken = this.createToken({data: decoded.data});
 				//console.log("new token");
 				//console.log(newToken);
@@ -110,9 +132,9 @@ export default {
 	},
 	async getAllFilesOfIstanzaSelezionata() {
 		let folderId = null;
-		file_loading_txt.setText("caricamento lista files in corso...");
 		console.log("inizio");
 		if (appsmith.store.selectedRowId !== null) {
+			file_loading_txt.setText("caricamento lista files in corso...");
 			console.log("verifico se la cartella esiste");
 			let existingFolder = await getAllFilesAndFolderGdrive.run({filterName: appsmith.store.selectedRowId.toString(),folderId: gdriveHelper.mainFolderId});
 			console.log(existingFolder);
@@ -140,8 +162,10 @@ export default {
 			this.allFilesIstanza = allFilesOfIstanza.files;
 			allFilesOfIstanza.files.length > 0 ? file_loading_txt.setText(allFilesOfIstanza.files.length + " files presenti per l'istanza selezionata"): file_loading_txt.setText("nessun file presente per l'istanza selezionata");
 		}
-		else
+		else {
 			console.log("nessuna istanza selezionata");
+			file_loading_txt.setText("E' necessario selezionare un istanza");
+		}
 	},
 	getTipoNuoviFiles () {
 		let keys = Object.keys(gdriveHelper.fileType);

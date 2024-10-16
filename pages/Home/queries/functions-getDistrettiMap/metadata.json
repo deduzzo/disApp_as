@@ -1,6 +1,6 @@
 {
-  "gitSyncId": "670cacb363d5690c2f531d49_c2fc03c4-3e24-42b0-8ab4-af0d9e201402",
-  "id": "Home_functions.verifyTokenExpires",
+  "gitSyncId": "670905f7e246ae0ac15265ec_5ca36ac2-1ef4-41d5-9597-723b1f4f401f",
+  "id": "Home_functions.getDistrettiMap",
   "pluginId": "js-plugin",
   "pluginType": "JS",
   "unpublishedAction": {
@@ -23,9 +23,9 @@
       }
     ],
     "executeOnLoad": false,
-    "fullyQualifiedName": "functions.verifyTokenExpires",
-    "name": "verifyTokenExpires",
+    "fullyQualifiedName": "functions.getDistrettiMap",
+    "name": "getDistrettiMap",
     "pageId": "Home",
-    "userSetOnLoad": true
+    "userSetOnLoad": false
   }
 }

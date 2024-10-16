@@ -18,6 +18,14 @@
       {
         "name": "folderIdIstanzaSelezionata",
         "value": "null"
+      },
+      {
+        "name": "userData",
+        "value": "null"
+      },
+      {
+        "name": "distrettiDataSelect",
+        "value": "[]"
       }
     ]
   }

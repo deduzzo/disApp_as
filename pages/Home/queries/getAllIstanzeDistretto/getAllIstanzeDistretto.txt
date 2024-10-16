@@ -3,8 +3,8 @@ SELECT
     CONCAT(a.cognome, ' ', a.nome) AS nominativo, 
     a.codice_fiscale, 
     i.attivo,
-		g.descrizione_gruppo as gruppo,
-		d.nome as distretto,
+    g.descrizione_gruppo as gruppo,
+    d.nome as distretto,
     isee.maggiore_25mila as iseeMaggiore
 FROM 
     istanza i
@@ -20,5 +20,7 @@ LEFT JOIN
      WHERE valido = true
     ) isee ON isee.id_istanza = i.id
 WHERE 
-    i.id_distretto = {{distretto_select.selectedOptionValue}} 
-    AND i.chiuso = false order by i.attivo DESC, nominativo ASC
+    i.chiuso = false 
+        {{ distretto_select.selectedOptionValue !== "all" ? "AND i.id_distretto = " + distretto_select.selectedOptionValue : "" }}
+ORDER BY 
+    i.attivo DESC, nominativo ASC;

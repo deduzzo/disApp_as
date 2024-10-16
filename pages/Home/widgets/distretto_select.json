@@ -7,9 +7,6 @@
   "defaultOptionValue": "{{ ((options, serverSideFiltering) => ( \n            {\n              label: distretto_select.options[0].label,\n              value: distretto_select.options[0].value\n            }\n          ))(distretto_select.options, distretto_select.serverSideFiltering) }}",
   "dynamicBindingPathList": [
     {
-      "key": "sourceData"
-    },
-    {
       "key": "defaultOptionValue"
     },
     {
@@ -17,6 +14,12 @@
     },
     {
       "key": "borderRadius"
+    },
+    {
+      "key": "sourceData"
+    },
+    {
+      "key": "isDisabled"
     }
   ],
   "dynamicHeight": "FIXED",
@@ -26,6 +29,9 @@
     },
     {
       "key": "onOptionChange"
+    },
+    {
+      "key": "isDisabled"
     }
   ],
   "dynamicTriggerPathList": [
@@ -33,7 +39,7 @@
       "key": "onOptionChange"
     }
   ],
-  "isDisabled": false,
+  "isDisabled": "{{functions.userData.distretto !== undefined && functions.userData.distretto !== null && functions.userData.distretto !== \"\" }}",
   "isFilterable": true,
   "isLoading": false,
   "isRequired": false,
@@ -63,7 +69,7 @@
   "responsiveBehavior": "fill",
   "rightColumn": 17,
   "serverSideFiltering": false,
-  "sourceData": "{{getAllDistretti.data.map( (obj) =>{ return  {'label': obj.nome, 'value': obj.id } })}}",
+  "sourceData": "{{functions.distrettiDataSelect}}",
   "topRow": 1,
   "type": "SELECT_WIDGET",
   "version": 1,

@@ -5,12 +5,12 @@
   "pluginType": "DB",
   "unpublishedAction": {
     "actionConfiguration": {
-      "body": "SELECT \n    i.id, \n    CONCAT(a.cognome, ' ', a.nome) AS nominativo, \n    a.codice_fiscale, \n    i.attivo,\n\t\tg.descrizione_gruppo as gruppo,\n\t\td.nome as distretto,\n    isee.maggiore_25mila as iseeMaggiore\nFROM \n    istanza i\nJOIN \n    anagrafica a ON a.id = i.id_anagrafica_disabile\nJOIN \n    gruppo g ON i.id_gruppo = g.id\nJOIN \n    distretto d ON i.id_distretto = d.id\nLEFT JOIN \n    (SELECT id_istanza, maggiore_25mila\n     FROM isee\n     WHERE valido = true\n    ) isee ON isee.id_istanza = i.id\nWHERE \n    i.id_distretto = {{distretto_select.selectedOptionValue}} \n    AND i.chiuso = false order by i.attivo DESC, nominativo ASC\n",
+      "body": "SELECT \n    i.id, \n    CONCAT(a.cognome, ' ', a.nome) AS nominativo, \n    a.codice_fiscale, \n    i.attivo,\n    g.descrizione_gruppo as gruppo,\n    d.nome as distretto,\n    isee.maggiore_25mila as iseeMaggiore\nFROM \n    istanza i\nJOIN \n    anagrafica a ON a.id = i.id_anagrafica_disabile\nJOIN \n    gruppo g ON i.id_gruppo = g.id\nJOIN \n    distretto d ON i.id_distretto = d.id\nLEFT JOIN \n    (SELECT id_istanza, maggiore_25mila\n     FROM isee\n     WHERE valido = true\n    ) isee ON isee.id_istanza = i.id\nWHERE \n    i.chiuso = false \n        {{ distretto_select.selectedOptionValue !== \"all\" ? \"AND i.id_distretto = \" + distretto_select.selectedOptionValue : \"\" }}\nORDER BY \n    i.attivo DESC, nominativo ASC;\n",
       "encodeParamsToggle": true,
       "paginationType": "NONE",
       "pluginSpecifiedTemplates": [
         {
-          "value": true
+          "value": false
         }
       ],
       "timeoutInMillisecond": 10000
