@@ -123,13 +123,14 @@ export default {
 					folderId = res.id;
 			}
 			else if (existingFolder && existingFolder.files.length === 1) {
+			
 				folderId = existingFolder.files[0].id;
 				console.log("cartella esistente, id" + folderId);
 			}
 			console.log("ricaviamo la lista dei file");
 			console.log("folderid: " + folderId)
 			this.folderIdIstanzaSelezionata = folderId;
-			let allFilesOfIstanza = await getAllFilesAndFolderGdrive.run({folderId: existingFolder.files[0].id});
+			let allFilesOfIstanza = await getAllFilesAndFolderGdrive.run({folderId: folderId});
 			console.log(allFilesOfIstanza.files);
 			this.allFilesIstanza = allFilesOfIstanza.files;
 			allFilesOfIstanza.files.length > 0 ? file_loading_txt.setText(allFilesOfIstanza.files.length + " files presenti per l'istanza selezionata"): file_loading_txt.setText("nessun file presente per l'istanza selezionata");
@@ -148,14 +149,14 @@ export default {
 	uploadFileScheda() {
 		if (this.folderIdIstanzaSelezionata && file_scheda.files.length >0 && tipo_nuovo_file_select.selectedOptionValue ) {
 			let filename = tipo_nuovo_file_select.selectedOptionValue + "#" + descrizione_file_scheda_txt.text + "#" + file_scheda.files[0].name;
-			uploadFileToGDrive.run({fileName:filename,folderId: this.folderIdIstanzaSelezionata,file: file_scheda.files[0] })
+			uploadFileToGDrive.run({fileName:filename,folderId: this.folderIdIstanzaSelezionata, file: file_scheda.files[0] })
 				.then(() => {
 				console.log("ok");
 				showAlert("Caricamento file avvenuto con successo", "success")
 				this.aggiornaScheda();
 				resetWidget("Form2")
 			}).catch((err) => {
-				console.log(err);
+				console.log(JSON.stringify(err));
 				showAlert("Errore nel caricamento del file", "error" )
 			});
 
