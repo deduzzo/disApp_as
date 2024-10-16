@@ -1,6 +1,6 @@
 {
   "gitSyncId": "670cacb363d5690c2f531d49_735100d8-46c3-4a2a-9e12-615496396092",
-  "id": "Home_uploadIsee",
+  "id": "Home_uploadFileToGDrive",
   "pluginId": "restapi-plugin",
   "pluginType": "API",
   "unpublishedAction": {
@@ -16,11 +16,12 @@
         {
           "key": "metadata",
           "type": "Text",
-          "value": "{\"name\": \"{{FilePicker1.files[0].name}}\",\"parents\": [\"{{ gdriveHelper.dataPath}}\"]}"
+          "value": "{\"name\": \"{{this.params.fileName}}\",\"parents\": [\"{{ this.params.folderId}}\"]}"
         },
         {
           "key": "file",
-          "value": "{{FilePicker1.files[0]}}"
+          "type": "File",
+          "value": "{{ this.params.file}}"
         }
       ],
       "encodeParamsToggle": true,
@@ -65,7 +66,7 @@
       }
     ],
     "executeOnLoad": false,
-    "name": "uploadIsee",
+    "name": "uploadFileToGDrive",
     "pageId": "Home",
     "userSetOnLoad": false
   }

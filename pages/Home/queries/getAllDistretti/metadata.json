@@ -22,7 +22,7 @@
       "name": "disabili_db_prod",
       "pluginId": "mysql-plugin"
     },
-    "executeOnLoad": false,
+    "executeOnLoad": true,
     "name": "getAllDistretti",
     "pageId": "Home",
     "userSetOnLoad": true

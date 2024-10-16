@@ -2,13 +2,10 @@
   "accentColor": "{{appsmith.theme.colors.primaryColor}}",
   "animateLoading": true,
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-  "bottomRow": 7,
+  "bottomRow": 13,
   "boxShadow": "none",
-  "defaultOptionValue": "{{ ((options, serverSideFiltering) => ( appsmith.store.selectedRowId))(disabile_select.options, disabile_select.serverSideFiltering) }}",
+  "defaultOptionValue": "",
   "dynamicBindingPathList": [
-    {
-      "key": "sourceData"
-    },
     {
       "key": "accentColor"
     },
@@ -16,7 +13,7 @@
       "key": "borderRadius"
     },
     {
-      "key": "defaultOptionValue"
+      "key": "sourceData"
     }
   ],
   "dynamicHeight": "FIXED",
@@ -25,45 +22,43 @@
       "key": "sourceData"
     }
   ],
-  "dynamicTriggerPathList": [
-    {
-      "key": "onOptionChange"
-    }
-  ],
+  "dynamicTriggerPathList": [],
   "isDisabled": false,
   "isFilterable": true,
   "isLoading": false,
-  "isRequired": false,
+  "isRequired": true,
   "isVisible": true,
-  "key": "xvtrkaxx6d",
+  "key": "5ol5hzq6hg",
   "labelAlignment": "left",
   "labelPosition": "Top",
-  "labelText": "Disabile",
+  "labelText": "Tipologia file:",
   "labelTextSize": "0.875rem",
   "labelWidth": 5,
-  "leftColumn": 0,
+  "leftColumn": 2,
   "maxDynamicHeight": 9000,
   "minDynamicHeight": 4,
   "minWidth": 450,
-  "mobileBottomRow": 91,
+  "mobileBottomRow": 11,
   "mobileLeftColumn": 0,
   "mobileRightColumn": 20,
-  "mobileTopRow": 84,
+  "mobileTopRow": 4,
   "needsErrorInfo": false,
-  "onOptionChange": "{{functions.aggiornaScheda();}}",
-  "optionLabel": "label",
-  "optionValue": "value",
-  "parentId": "bv0tdxa49b",
+  "optionLabel": "value",
+  "optionValue": "key",
+  "originalBottomRow": 13,
+  "originalTopRow": 6,
+  "parentColumnSpace": 8.722381591796875,
+  "parentId": "b6jrakaza6",
   "parentRowSpace": 10,
-  "placeholderText": "Select option",
+  "placeholderText": "tipo...",
   "renderMode": "CANVAS",
   "responsiveBehavior": "fill",
-  "rightColumn": 30,
+  "rightColumn": 33,
   "serverSideFiltering": false,
-  "sourceData": "{{getAllIstanzeDistretto.data.map( (obj) =>{ return  {'label': obj.nominativo, 'value': obj.id } })}}",
-  "topRow": 0,
+  "sourceData": "{{functions.getTipoNuoviFiles()}}",
+  "topRow": 6,
   "type": "SELECT_WIDGET",
   "version": 1,
-  "widgetId": "hwtopkqb9m",
-  "widgetName": "disabile_select"
+  "widgetId": "g9iyvwtqzs",
+  "widgetName": "tipo_nuovo_file_select"
 }

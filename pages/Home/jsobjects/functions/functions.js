@@ -1,5 +1,7 @@
 export default {
 	secret: "UxZ>69'[Tu<6",
+	allFilesIstanza: [],
+	folderIdIstanzaSelezionata: null,
 
 	async aggiornaTabs() {
 		storeValue('selectedTab',tabs.selectedTab);
@@ -14,6 +16,7 @@ export default {
 				break;
 			case "Scheda":
 				disabile_select.setSelectedOption(appsmith.store.selectedRowId ?? null);
+				this.getAllFilesOfIstanzaSelezionata();
 				break;
 			case "ISEE":
 				await getIseeIstanza.run();
@@ -24,8 +27,9 @@ export default {
 	async initLoad() {
 		storeValue('selectedTab',"Elenco");
 		storeValue("selectedRowId",null)
+		this.allFilesIstanza = [];
 		//await getAllDistretti.run();
-		await getAllDistretti.run();
+		//await getAllDistretti.run();
 		await getAllIstanzeDistretto.run();
 		await getAllDeterminePagamenti.run();
 		await getIseeIstanza.run();
@@ -97,5 +101,65 @@ export default {
 			console.error('Errore durante la verifica della cartella:', error);
 		}
 	},
+	aggiornaScheda() {
+		storeValue("selectedRowId",disabile_select.selectedOptionValue);
+		file_loading_txt.setText("");
+		this.allFilesIstanza = [];
+		this.folderIdIstanzaSelezionata = null;
+		this.getAllFilesOfIstanzaSelezionata().then(() => {});
+	},
+	async getAllFilesOfIstanzaSelezionata() {
+		let folderId = null;
+		file_loading_txt.setText("caricamento lista files in corso...");
+		console.log("inizio");
+		if (appsmith.store.selectedRowId !== null) {
+			console.log("verifico se la cartella esiste");
+			let existingFolder = await getAllFilesAndFolderGdrive.run({filterName: appsmith.store.selectedRowId.toString(),folderId: gdriveHelper.mainFolderId});
+			console.log(existingFolder);
+			if (existingFolder && existingFolder.files.length === 0) {
+				console.log("la cartella non esiste, creiamola");
+				let res = await createFolderToGdrive.run({folderName: "#"+ appsmith.store.selectedRowId.toString() + " - " + disabile_select.selectedOptionLabel })
+				if (res.id)
+					folderId = res.id;
+			}
+			else if (existingFolder && existingFolder.files.length === 1) {
+				folderId = existingFolder.files[0].id;
+				console.log("cartella esistente, id" + folderId);
+			}
+			console.log("ricaviamo la lista dei file");
+			console.log("folderid: " + folderId)
+			this.folderIdIstanzaSelezionata = folderId;
+			let allFilesOfIstanza = await getAllFilesAndFolderGdrive.run({folderId: existingFolder.files[0].id});
+			console.log(allFilesOfIstanza.files);
+			this.allFilesIstanza = allFilesOfIstanza.files;
+			allFilesOfIstanza.files.length > 0 ? file_loading_txt.setText(allFilesOfIstanza.files.length + " files presenti per l'istanza selezionata"): file_loading_txt.setText("nessun file presente per l'istanza selezionata");
+		}
+		else
+			console.log("nessuna istanza selezionata");
+	},
+	getTipoNuoviFiles () {
+		let keys = Object.keys(gdriveHelper.fileType);
+		let out = [];
+		for (let k of keys) {
+			out.push({key: k, value: gdriveHelper.fileType[k]});
+		}
+		return out;
+	},
+	uploadFileScheda() {
+		if (this.folderIdIstanzaSelezionata && file_scheda.files.length >0 && tipo_nuovo_file_select.selectedOptionValue ) {
+			let filename = tipo_nuovo_file_select.selectedOptionValue + "#" + descrizione_file_scheda_txt.text + "#" + file_scheda.files[0].name;
+			uploadFileToGDrive.run({fileName:filename,folderId: this.folderIdIstanzaSelezionata,file: file_scheda.files[0] })
+				.then(() => {
+				console.log("ok");
+				showAlert("Caricamento file avvenuto con successo", "success")
+				this.aggiornaScheda();
+				resetWidget("Form2")
+			}).catch((err) => {
+				console.log(err);
+				showAlert("Errore nel caricamento del file", "error" )
+			});
+
+		}
+	}
 
 }

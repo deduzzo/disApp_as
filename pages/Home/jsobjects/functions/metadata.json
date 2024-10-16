@@ -10,6 +10,14 @@
       {
         "name": "secret",
         "value": "\"UxZ>69'[Tu<6\""
+      },
+      {
+        "name": "allFilesIstanza",
+        "value": "[]"
+      },
+      {
+        "name": "folderIdIstanzaSelezionata",
+        "value": "null"
       }
     ]
   }

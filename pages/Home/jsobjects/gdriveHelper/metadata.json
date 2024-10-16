@@ -20,16 +20,20 @@
         "value": "\"dati-bancari\""
       },
       {
+        "name": "EREDI",
+        "value": "\"eredi\""
+      },
+      {
         "name": "SEPERATOR",
         "value": "\"#\""
       },
       {
-        "name": "dataPath",
+        "name": "mainFolderId",
         "value": "\"1wmqEh-WKeaem6pLyRwwhQEBmd1qnZKpc\""
       },
       {
         "name": "fileType",
-        "value": "{\n  PATTO_DI_CURA: \"Patto di Cura\"\n}"
+        "value": "{\n  \"patto-di-cura\": \"Patto di Cura\",\n  \"eredi\": \"Dichiarazione eredi\"\n}"
       }
     ]
   }

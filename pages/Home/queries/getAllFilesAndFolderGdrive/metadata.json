@@ -38,7 +38,7 @@
         },
         {
           "key": "q",
-          "value": "'{{gdriveHelper.dataPath}}' in parents and trashed = false"
+          "value": "'{{this.params.folderId}}' in parents and trashed = false{{ this.params && this.params.hasOwnProperty(\"filterName\") ? (\" and name contains '\" + this.params.filterName + \"'\") : \"\"}}"
         },
         {
           "key": "fields",
