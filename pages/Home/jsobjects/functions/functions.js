@@ -118,19 +118,24 @@ export default {
 			console.log(existingFolder);
 			if (existingFolder && existingFolder.files.length === 0) {
 				console.log("la cartella non esiste, creiamola");
-				let res = await createFolderToGdrive.run({folderName: "#"+ appsmith.store.selectedRowId.toString() + " - " + disabile_select.selectedOptionLabel })
+				let res = await createFolderToGdrive.run(
+					{
+						folderName: "#"+ appsmith.store.selectedRowId.toString() + " - " + disabile_select.selectedOptionLabel,
+						parentFolderId: gdriveHelper.mainFolderId
+					})
+				console.log("cartella creata")
+				console.log(res);
 				if (res.id)
 					folderId = res.id;
 			}
 			else if (existingFolder && existingFolder.files.length === 1) {
-			
 				folderId = existingFolder.files[0].id;
 				console.log("cartella esistente, id" + folderId);
 			}
 			console.log("ricaviamo la lista dei file");
 			console.log("folderid: " + folderId)
 			this.folderIdIstanzaSelezionata = folderId;
-			let allFilesOfIstanza = await getAllFilesAndFolderGdrive.run({folderId: folderId});
+			let allFilesOfIstanza = await getAllFilesAndFolderGdrive.run({folderId: this.folderIdIstanzaSelezionata});
 			console.log(allFilesOfIstanza.files);
 			this.allFilesIstanza = allFilesOfIstanza.files;
 			allFilesOfIstanza.files.length > 0 ? file_loading_txt.setText(allFilesOfIstanza.files.length + " files presenti per l'istanza selezionata"): file_loading_txt.setText("nessun file presente per l'istanza selezionata");

@@ -11,7 +11,7 @@
           "value": "application/json"
         }
       ],
-      "body": "{\n  \"name\": \"{{this.params.folderName}}\",\n  \"mimeType\": \"application/vnd.google-apps.folder\",\n  \"parents\": [\"{{ gdriveHelper.dataPath}}\"]\n}",
+      "body": "{\n  \"name\": \"{{this.params.folderName}}\",\n  \"mimeType\": \"application/vnd.google-apps.folder\",\n  \"parents\": [\"{{ this.params.parentFolderId}}\"]\n}",
       "bodyFormData": [],
       "encodeParamsToggle": true,
       "formData": {

@@ -1,5 +1,5 @@
 {
   "name": "{{this.params.folderName}}",
   "mimeType": "application/vnd.google-apps.folder",
-  "parents": ["{{ gdriveHelper.dataPath}}"]
+  "parents": ["{{ this.params.parentFolderId}}"]
 }
