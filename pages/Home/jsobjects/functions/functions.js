@@ -31,6 +31,7 @@ export default {
 		storeValue("selectedRowId",null)
 		this.allFilesIstanza = [];
 		this.verifyTokenExpires();
+		await getAllDistretti.run();
 		this.distrettiDataSelect = this.getDistrettiMap();
 		//await getAllDistretti.run();
 		//await getAllDistretti.run();
@@ -190,6 +191,38 @@ export default {
 			});
 
 		}
+	},
+	downloadFile(fileId) {
+		getContentFileFromGdrive.run({fileId: fileId, altMedia: false})
+			.then(async (response) => {
+			console.log(response);
+			getContentFileFromGdrive.run({fileId: fileId, altMedia: true})
+				.then(async (response2) => {
+				//response2 = js_base.encode(response2);
+		
+				
+				const byteArray = this.textToBinaryArray(response2);
+				//const byteArray = new text_encoding.TextEncoder().encode(response2);
+
+				//const data = response2;
+				//console.log(response2)
+				const blob = new Blob([byteArray], {type: response.mimeType + ";charset=UTF-8"});
+				const url = URL.createObjectURL(blob);
+				//const url = URL.createObjectURL([data]);
+				await download(url, response.name,response.mimeType)
+			})
+		})
+	},
+	textToBinaryArray(base64String) {
+		// Decodifica la stringa base64 in una stringa binaria
+		//const binaryString = js_base.decode(base64String);
+		const binaryString = base64String;
+		const len = binaryString.length;
+		const bytes = new Uint8Array(len);
+		for (let i = 0; i < len; i++) {
+			bytes[i] = binaryString.charCodeAt(i);
+		}
+		return bytes;
 	}
 
 }
