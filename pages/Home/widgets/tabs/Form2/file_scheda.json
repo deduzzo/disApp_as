@@ -28,7 +28,7 @@
   "key": "9ikiu08jez",
   "label": "Seleziona il file..",
   "leftColumn": 35,
-  "maxFileSize": 5,
+  "maxFileSize": "500",
   "maxNumFiles": 1,
   "minWidth": 120,
   "mobileBottomRow": 10,

@@ -36,7 +36,7 @@
   "mobileRightColumn": 26,
   "mobileTopRow": 57,
   "needsErrorInfo": false,
-  "onClick": "{{functions.downloadFile()}}",
+  "onClick": "{{functions.zipFileAndUpload()}}",
   "parentColumnSpace": 19.2744140625,
   "parentId": "bv0tdxa49b",
   "parentRowSpace": 10,

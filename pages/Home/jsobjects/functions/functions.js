@@ -192,37 +192,93 @@ export default {
 
 		}
 	},
-	downloadFile(fileId) {
+
+	downloadFile2(fileId) {
 		getContentFileFromGdrive.run({fileId: fileId, altMedia: false})
 			.then(async (response) => {
 			console.log(response);
 			getContentFileFromGdrive.run({fileId: fileId, altMedia: true})
 				.then(async (response2) => {
+				//console.log(response2.blob())
 				//response2 = js_base.encode(response2);
-		
-				
-				const byteArray = this.textToBinaryArray(response2);
-				//const byteArray = new text_encoding.TextEncoder().encode(response2);
 
-				//const data = response2;
-				//console.log(response2)
-				const blob = new Blob([byteArray], {type: response.mimeType + ";charset=UTF-8"});
+
+				const data = this.textToBinaryArray(response2);
+
+
+				const blob = new Blob([data]);
+
 				const url = URL.createObjectURL(blob);
 				//const url = URL.createObjectURL([data]);
 				await download(url, response.name,response.mimeType)
 			})
 		})
 	},
-	textToBinaryArray(base64String) {
-		// Decodifica la stringa base64 in una stringa binaria
-		//const binaryString = js_base.decode(base64String);
-		const binaryString = base64String;
-		const len = binaryString.length;
+	downloadFile(fileId) {
+		getContentFileFromGdrive.run({fileId: fileId, altMedia: true})
+			.then(async (response2) => {
+			// Supponiamo che response2 sia una stringa base64
+			const byteArray = this.textToBinaryArray(response2); // Decodifica la stringa base64 in binario
+
+			// Crea un Blob dal byteArray
+			const blob = new Blob([byteArray], { type: 'application/octet-stream' });
+
+			// Crea un URL per il Blob e scarica il file
+			const url = URL.createObjectURL(blob);
+			await download(url, response.name, "application/octet-stream");
+		})
+			.catch(error => {
+			console.error("Errore nel recupero del file:", error);
+		});
+	},
+	textToBinaryArray(binaryData) {
+		// Assumi che 'binaryData' sia un oggetto tipo stringa o un buffer di dati binari
+		const len = binaryData.length;
+
+		// Se binaryData è una stringa binaria, usa direttamente Uint8Array
 		const bytes = new Uint8Array(len);
+
 		for (let i = 0; i < len; i++) {
-			bytes[i] = binaryString.charCodeAt(i);
+			// Copia i byte direttamente nella nuova Uint8Array
+			bytes[i] = binaryData.charCodeAt(i) ;  // Mantieni solo il byte meno significativo
 		}
+
 		return bytes;
+	},
+	zipFileAndUploadFileScheda() {
+		if (this.folderIdIstanzaSelezionata && file_scheda.files.length >0 && tipo_nuovo_file_select.selectedOptionValue ) {	
+			let fileName = tipo_nuovo_file_select.selectedOptionValue + "#" + descrizione_file_scheda_txt.text + "#" + file_scheda.files[0].name;
+			const zip = new jszip();
+
+			zip.file(fileName,btoa(file_scheda.files[0].data), {binary: true,base64: true});
+			const newFileName = fileName.replaceAll(".","_") + ".zip";
+
+			zip.generateAsync({type:"binarystring",compression: "DEFLATE",compressionOptions: { level: 9 }}).then((zipBlob) => {
+
+				let fileZipObj = {type: "application/zip", data: zipBlob, dataFormat: "binary",name: newFileName}
+
+				uploadFileToGDrive.run({fileName:newFileName,folderId: this.folderIdIstanzaSelezionata, file: fileZipObj })
+					.then(() => {
+					console.log("ok");
+					showAlert("Caricamento file avvenuto con successo", "success")
+					this.aggiornaScheda();
+					resetWidget("Form2")
+				}).catch((err) => {
+					console.log(JSON.stringify(err));
+					showAlert("Errore nel caricamento del file", "error" )
+				});
+			}).catch((er) => console.log(er));
+		}
+	},
+	arrayBufferToBase64(buffer) {
+		let binary = '';
+		const bytes = new Uint8Array(buffer);
+		const len = bytes.byteLength;
+		for (let i = 0; i < len; i++) {
+			binary += String.fromCharCode(bytes[i]);
+		}
+		return btoa(binary);
 	}
+
 
 }

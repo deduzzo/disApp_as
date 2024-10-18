@@ -8,7 +8,7 @@
       "encodeParamsToggle": true,
       "jsArguments": [
         {
-          "name": "base64String"
+          "name": "binaryData"
         }
       ],
       "paginationType": "NONE",

@@ -1,6 +1,6 @@
 {
-  "gitSyncId": "670905f7e246ae0ac15265ec_52b31d3c-b39e-445b-b0df-2ac6d8e892a2",
-  "id": "Home_functions.downloadFile",
+  "gitSyncId": "670cacb363d5690c2f531d49_3d49571c-9c8f-42da-ba5a-70df3042c7b6",
+  "id": "Home_functions.downloadFile2",
   "pluginId": "js-plugin",
   "pluginType": "JS",
   "unpublishedAction": {
@@ -27,8 +27,8 @@
       }
     ],
     "executeOnLoad": false,
-    "fullyQualifiedName": "functions.downloadFile",
-    "name": "downloadFile",
+    "fullyQualifiedName": "functions.downloadFile2",
+    "name": "downloadFile2",
     "pageId": "Home",
     "userSetOnLoad": false
   }
