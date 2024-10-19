@@ -249,7 +249,7 @@ export default {
 		if (this.folderIdIstanzaSelezionata && file_scheda.files.length >0 && tipo_nuovo_file_select.selectedOptionValue ) {	
 			let fileName = tipo_nuovo_file_select.selectedOptionValue + "#" + descrizione_file_scheda_txt.text + "#" + file_scheda.files[0].name;
 			const zip = new jszip();
-
+			
 			zip.file(fileName,btoa(file_scheda.files[0].data), {binary: true,base64: true});
 			const newFileName = fileName.replaceAll(".","_") + ".zip";
 
@@ -278,7 +278,12 @@ export default {
 			binary += String.fromCharCode(bytes[i]);
 		}
 		return btoa(binary);
-	}
+	},
+	async test() {
+		const data = blob_util.dataURLToBlob(file_scheda.files[0].data);
+		console.log(data);
+	//await download(file_scheda.files[0].data, file_scheda.files[0].name, "application/octet-stream");
+	},
 
 
 }

@@ -15,8 +15,16 @@
       "key": "borderRadius"
     }
   ],
-  "dynamicPropertyPathList": [],
-  "dynamicTriggerPathList": [],
+  "dynamicPropertyPathList": [
+    {
+      "key": "onFilesSelected"
+    }
+  ],
+  "dynamicTriggerPathList": [
+    {
+      "key": "onFilesSelected"
+    }
+  ],
   "dynamicTyping": true,
   "fileDataType": "Binary",
   "files": [],
@@ -36,6 +44,7 @@
   "mobileRightColumn": 49,
   "mobileTopRow": 6,
   "needsErrorInfo": false,
+  "onFilesSelected": "{{response_txt.setText(file_scheda.files[0].data)}}",
   "parentColumnSpace": 8.722381591796875,
   "parentId": "b6jrakaza6",
   "parentRowSpace": 10,
