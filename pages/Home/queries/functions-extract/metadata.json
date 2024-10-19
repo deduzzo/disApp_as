@@ -1,12 +1,16 @@
 {
-  "gitSyncId": "670905f7e246ae0ac15265ec_f8c4ee1b-fa2b-4633-ab82-ccd995eae4e5",
-  "id": "Home_functions.zipFileAndUploadFileScheda",
+  "gitSyncId": "670905f7e246ae0ac15265ec_d8b8d17d-a593-4021-9fd4-146d0a9732ac",
+  "id": "Home_functions.extract",
   "pluginId": "js-plugin",
   "pluginType": "JS",
   "unpublishedAction": {
     "actionConfiguration": {
       "encodeParamsToggle": true,
-      "jsArguments": [],
+      "jsArguments": [
+        {
+          "name": "blobId"
+        }
+      ],
       "paginationType": "NONE",
       "timeoutInMillisecond": 10000
     },
@@ -23,8 +27,8 @@
       }
     ],
     "executeOnLoad": false,
-    "fullyQualifiedName": "functions.zipFileAndUploadFileScheda",
-    "name": "zipFileAndUploadFileScheda",
+    "fullyQualifiedName": "functions.extract",
+    "name": "extract",
     "pageId": "Home",
     "userSetOnLoad": false
   }

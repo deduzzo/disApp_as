@@ -31,7 +31,7 @@
   "mobileRightColumn": 62,
   "mobileTopRow": 33,
   "needsErrorInfo": false,
-  "onClick": "{{functions.zipFileAndUploadFileScheda();}}",
+  "onClick": "{{functions.uploadFileScheda();}}",
   "originalBottomRow": 37,
   "originalTopRow": 33,
   "parentId": "b6jrakaza6",

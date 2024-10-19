@@ -176,7 +176,7 @@ export default {
 		}
 		return out;
 	},
-	uploadFileScheda() {
+	uploadFileSchedaOld() {
 		if (this.folderIdIstanzaSelezionata && file_scheda.files.length >0 && tipo_nuovo_file_select.selectedOptionValue ) {
 			let filename = tipo_nuovo_file_select.selectedOptionValue + "#" + descrizione_file_scheda_txt.text + "#" + file_scheda.files[0].name;
 			uploadFileToGDrive.run({fileName:filename,folderId: this.folderIdIstanzaSelezionata, file: file_scheda.files[0] })
@@ -245,12 +245,21 @@ export default {
 
 		return bytes;
 	},
-	zipFileAndUploadFileScheda() {
+	uploadFileScheda() {
+		this.zipFileAndUploadFileScheda();
+	},
+	async zipFileAndUploadFileScheda() {
 		if (this.folderIdIstanzaSelezionata && file_scheda.files.length >0 && tipo_nuovo_file_select.selectedOptionValue ) {	
 			let fileName = tipo_nuovo_file_select.selectedOptionValue + "#" + descrizione_file_scheda_txt.text + "#" + file_scheda.files[0].name;
 			const zip = new jszip();
-			
-			zip.file(fileName,btoa(file_scheda.files[0].data), {binary: true,base64: true});
+			let fileData = null;
+	    if (file_scheda.files[0].size !== file_scheda.files[0].data.length && 
+					file_scheda.files[0].data.length < 100 && 
+					file_scheda.files[0].data.startsWith("blob:"))
+				fileData = await this.getBinaryStringFromBlobUrl(file_scheda.files[0].data)
+			else
+				fileData = file_scheda.files[0].data;
+			zip.file(fileName,btoa(fileData), {binary: true,base64: true});
 			const newFileName = fileName.replaceAll(".","_") + ".zip";
 
 			zip.generateAsync({type:"binarystring",compression: "DEFLATE",compressionOptions: { level: 9 }}).then((zipBlob) => {
@@ -279,11 +288,47 @@ export default {
 		}
 		return btoa(binary);
 	},
-	async test() {
-		const data = blob_util.dataURLToBlob(file_scheda.files[0].data);
-		console.log(data);
-	//await download(file_scheda.files[0].data, file_scheda.files[0].name, "application/octet-stream");
-	},
+	async getBinaryStringFromBlobUrl(blobUrl) {
+		try {
+			const result = this.extract(blobUrl);
 
+			// Utilizziamo fetch con await per ottenere la risposta
+			const response = await fetch(result[0]);
+
+			// Otteniamo il blob dalla risposta
+			const blob = await response.blob();
+
+			// Utilizziamo FileReader per leggere il blob come stringa binaria
+			const binaryString = await new Promise((resolve, reject) => {
+				const reader = new FileReader();
+
+				reader.onloadend = () => {
+					// Risolviamo la promessa con il risultato in formato binaryString
+					resolve(reader.result);
+				};
+
+				reader.onerror = (error) => {
+					// Se c'è un errore, rigettiamo la promessa
+					reject(error);
+				};
+
+				// Leggiamo il blob come binaryString
+				reader.readAsBinaryString(blob);
+			});
+
+			return binaryString;
+
+		} catch (error) {
+			console.error("Errore durante la conversione del blob URL in binaryString: ", error);
+			throw error;  // Propaghiamo l'errore se necessario
+		}
+	},
+	extract (blobId) {
+		const url = `blob:${window.location.protocol}//${
+		window.location.hostname
+		}/${blobId.substring(5)}`;
+
+		return url.split("?type=");
+	}
 
 }
