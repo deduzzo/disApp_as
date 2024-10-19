@@ -4,6 +4,7 @@ export default {
 	folderIdIstanzaSelezionata: null,
 	userData: null,
 	distrettiDataSelect: [],
+	uploadFileInProgress: false,
 
 	async aggiornaTabs() {
 		storeValue('selectedTab',tabs.selectedTab);
@@ -246,6 +247,7 @@ export default {
 		return bytes;
 	},
 	uploadFileScheda() {
+		this.uploadFileInProgress = true;
 		this.zipFileAndUploadFileScheda();
 	},
 	async zipFileAndUploadFileScheda() {
@@ -268,13 +270,14 @@ export default {
 
 				uploadFileToGDrive.run({fileName:newFileName,folderId: this.folderIdIstanzaSelezionata, file: fileZipObj })
 					.then(() => {
-					console.log("ok");
 					showAlert("Caricamento file avvenuto con successo", "success")
 					this.aggiornaScheda();
+					this.uploadFileInProgress = false;
 					resetWidget("Form2")
 				}).catch((err) => {
 					console.log(JSON.stringify(err));
 					showAlert("Errore nel caricamento del file", "error" )
+					this.uploadFileInProgress = false;
 				});
 			}).catch((er) => console.log(er));
 		}

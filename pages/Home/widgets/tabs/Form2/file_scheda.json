@@ -13,11 +13,14 @@
     },
     {
       "key": "borderRadius"
+    },
+    {
+      "key": "isDisabled"
     }
   ],
   "dynamicPropertyPathList": [
     {
-      "key": "onFilesSelected"
+      "key": "isDisabled"
     }
   ],
   "dynamicTriggerPathList": [
@@ -29,7 +32,7 @@
   "fileDataType": "Binary",
   "files": [],
   "isDefaultClickDisabled": true,
-  "isDisabled": false,
+  "isDisabled": "{{ functions.uploadFileInProgress\n}}",
   "isLoading": false,
   "isRequired": true,
   "isVisible": true,

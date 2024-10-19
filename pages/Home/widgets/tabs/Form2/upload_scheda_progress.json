@@ -1,0 +1,51 @@
+{
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 32,
+  "counterClosewise": false,
+  "dynamicBindingPathList": [
+    {
+      "key": "fillColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "isVisible"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "isVisible"
+    }
+  ],
+  "dynamicTriggerPathList": [],
+  "fillColor": "{{appsmith.theme.colors.primaryColor}}",
+  "isCanvas": false,
+  "isIndeterminate": true,
+  "isLoading": false,
+  "isVisible": "{{ functions.uploadFileInProgress\n}}",
+  "key": "89y7wbrggi",
+  "leftColumn": 3,
+  "mobileBottomRow": 29,
+  "mobileLeftColumn": 3,
+  "mobileRightColumn": 31,
+  "mobileTopRow": 25,
+  "needsErrorInfo": false,
+  "originalBottomRow": 33,
+  "originalTopRow": 29,
+  "parentColumnSpace": 7.924407958984375,
+  "parentId": "b6jrakaza6",
+  "parentRowSpace": 10,
+  "progress": 50,
+  "progressType": "linear",
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 62,
+  "showResult": false,
+  "steps": 1,
+  "topRow": 28,
+  "type": "PROGRESS_WIDGET",
+  "version": 1,
+  "widgetId": "0cka9jmaek",
+  "widgetName": "upload_scheda_progress"
+}

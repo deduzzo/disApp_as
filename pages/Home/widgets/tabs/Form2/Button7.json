@@ -12,11 +12,19 @@
     },
     {
       "key": "borderRadius"
+    },
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicPropertyPathList": [
+    {
+      "key": "isDisabled"
     }
   ],
   "dynamicTriggerPathList": [],
   "isDefaultClickDisabled": true,
-  "isDisabled": false,
+  "isDisabled": "{{ functions.uploadFileInProgress\n}}",
   "isLoading": false,
   "isVisible": true,
   "key": "h5a88xcayk",
@@ -27,8 +35,8 @@
   "mobileRightColumn": 46,
   "mobileTopRow": 33,
   "needsErrorInfo": false,
-  "originalBottomRow": 37,
-  "originalTopRow": 33,
+  "originalBottomRow": 38,
+  "originalTopRow": 34,
   "parentId": "b6jrakaza6",
   "placement": "CENTER",
   "recaptchaType": "V3",
