@@ -1,0 +1,10 @@
+{
+  "accessor": [
+    "text_encoding"
+  ],
+  "defs": "{\"!name\":\"LIB/text_encoding\",\"text_encoding\":{\"TextDecoder\":{\"!type\":\"fn()\",\"prototype\":{}},\"TextEncoder\":{\"!type\":\"fn()\",\"prototype\":{}}}}",
+  "name": "text_encoding",
+  "uidString": "text_encoding_https://cdn.jsdelivr.net/npm/text-encoding@0.7.0/+esm",
+  "url": "https://cdn.jsdelivr.net/npm/text-encoding@0.7.0/+esm",
+  "version": "0.7.0"
+}
