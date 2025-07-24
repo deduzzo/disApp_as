@@ -1,0 +1,1 @@
+SELECT * FROM anagrafica a, istanza i, distretto d where a.id = i.id_anagrafica_disabile AND d.id = i.id_distretto AND i.id = {{params.}}

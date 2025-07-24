@@ -1,0 +1,44 @@
+{
+  "gitSyncId": "670633b163d5690c2f531ce9_31016c3c-cb83-4a1f-a833-5d7f61aaf2eb",
+  "id": "Home_functions",
+  "unpublishedCollection": {
+    "name": "functions",
+    "pageId": "Home",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "variables": [
+      {
+        "name": "secret",
+        "value": "\"UxZ>69'[Tu<6\""
+      },
+      {
+        "name": "distrettiMap",
+        "value": "{\n  byUnique: {},\n  byId: {}\n}"
+      },
+      {
+        "name": "livelli",
+        "value": "{\n  \"100\": \"SuperAdmin\",\n  \"1\": \"Utente\",\n  \"2\": \"Admin Distretto\",\n  \"3\": \"Amministratore\"\n}"
+      },
+      {
+        "name": "allFilesIstanza",
+        "value": "[]"
+      },
+      {
+        "name": "folderIdIstanzaSelezionata",
+        "value": "null"
+      },
+      {
+        "name": "userData",
+        "value": "null"
+      },
+      {
+        "name": "distrettiDataSelect",
+        "value": "[]"
+      },
+      {
+        "name": "uploadFileInProgress",
+        "value": "false"
+      }
+    ]
+  }
+}

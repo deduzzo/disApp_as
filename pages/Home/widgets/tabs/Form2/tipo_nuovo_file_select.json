@@ -1,0 +1,70 @@
+{
+  "accentColor": "{{appsmith.theme.colors.primaryColor}}",
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 13,
+  "boxShadow": "none",
+  "defaultOptionValue": "",
+  "dynamicBindingPathList": [
+    {
+      "key": "accentColor"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "sourceData"
+    },
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicHeight": "FIXED",
+  "dynamicPropertyPathList": [
+    {
+      "key": "sourceData"
+    },
+    {
+      "key": "isDisabled"
+    }
+  ],
+  "dynamicTriggerPathList": [],
+  "isDisabled": "{{ functions.uploadFileInProgress\n}}",
+  "isFilterable": true,
+  "isLoading": false,
+  "isRequired": true,
+  "isVisible": true,
+  "key": "5ol5hzq6hg",
+  "labelAlignment": "left",
+  "labelPosition": "Top",
+  "labelText": "Tipologia file:",
+  "labelTextSize": "0.875rem",
+  "labelWidth": 5,
+  "leftColumn": 2,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "minWidth": 450,
+  "mobileBottomRow": 11,
+  "mobileLeftColumn": 0,
+  "mobileRightColumn": 20,
+  "mobileTopRow": 4,
+  "needsErrorInfo": false,
+  "optionLabel": "value",
+  "optionValue": "key",
+  "originalBottomRow": 13,
+  "originalTopRow": 6,
+  "parentColumnSpace": 8.722381591796875,
+  "parentId": "b6jrakaza6",
+  "parentRowSpace": 10,
+  "placeholderText": "tipo...",
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 33,
+  "serverSideFiltering": false,
+  "sourceData": "{{functions.getTipoNuoviFiles()}}",
+  "topRow": 6,
+  "type": "SELECT_WIDGET",
+  "version": 1,
+  "widgetId": "g9iyvwtqzs",
+  "widgetName": "tipo_nuovo_file_select"
+}

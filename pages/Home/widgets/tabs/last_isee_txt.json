@@ -1,0 +1,61 @@
+{
+  "animateLoading": true,
+  "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
+  "bottomRow": 7,
+  "dynamicBindingPathList": [
+    {
+      "key": "truncateButtonColor"
+    },
+    {
+      "key": "fontFamily"
+    },
+    {
+      "key": "borderRadius"
+    },
+    {
+      "key": "text"
+    },
+    {
+      "key": "textColor"
+    }
+  ],
+  "dynamicHeight": "AUTO_HEIGHT",
+  "dynamicPropertyPathList": [
+    {
+      "key": "textColor"
+    }
+  ],
+  "dynamicTriggerPathList": [],
+  "fontFamily": "{{appsmith.theme.fontFamily.appFont}}",
+  "fontSize": "1rem",
+  "fontStyle": "BOLD",
+  "isLoading": false,
+  "isVisible": true,
+  "key": "0wu17riuwq",
+  "leftColumn": 41,
+  "maxDynamicHeight": 9000,
+  "minDynamicHeight": 4,
+  "minWidth": 450,
+  "mobileBottomRow": 7,
+  "mobileLeftColumn": 41,
+  "mobileRightColumn": 57,
+  "mobileTopRow": 3,
+  "needsErrorInfo": false,
+  "overflow": "NONE",
+  "parentColumnSpace": 16.20654296875,
+  "parentId": "fl4qckzzqu",
+  "parentRowSpace": 10,
+  "renderMode": "CANVAS",
+  "responsiveBehavior": "fill",
+  "rightColumn": 48,
+  "shouldTruncate": false,
+  "text": "{{ getLastValidIsee.data ? (getLastValidIsee.data[0].maggiore_25mila === true ? \"MAGGIORE\": \"MINORE\" ) : \"N/D\" }}",
+  "textAlign": "LEFT",
+  "textColor": "{{ getLastValidIsee.data ? (getLastValidIsee.data[0].maggiore_25mila ? \"red\": \"blue\" ) : \"grey\" }}",
+  "topRow": 3,
+  "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
+  "type": "TEXT_WIDGET",
+  "version": 1,
+  "widgetId": "r0nchay5ue",
+  "widgetName": "last_isee_txt"
+}
