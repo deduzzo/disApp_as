@@ -4,11 +4,8 @@
   "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
   "bottomRow": 8,
   "boxShadow": "none",
-  "defaultOptionValue": "{{ ((options, serverSideFiltering) => ( \n            {\n              label: distretto_select.options[0].label,\n              value: distretto_select.options[0].value\n            }\n          ))(distretto_select.options, distretto_select.serverSideFiltering) }}",
+  "defaultOptionValue": "{{ ((options, serverSideFiltering) => ( functions. userData.codDistretto))(distretto_select.options, distretto_select.serverSideFiltering) }}",
   "dynamicBindingPathList": [
-    {
-      "key": "defaultOptionValue"
-    },
     {
       "key": "accentColor"
     },
@@ -20,6 +17,9 @@
     },
     {
       "key": "isDisabled"
+    },
+    {
+      "key": "defaultOptionValue"
     }
   ],
   "dynamicHeight": "FIXED",
@@ -64,12 +64,12 @@
   "optionValue": "value",
   "parentId": "0",
   "parentRowSpace": 10,
-  "placeholderText": "Select option",
+  "placeholderText": "Distretto...",
   "renderMode": "CANVAS",
   "responsiveBehavior": "fill",
   "rightColumn": 17,
   "serverSideFiltering": false,
-  "sourceData": "{{functions.distrettiDataSelect}}",
+  "sourceData": "{{functions.getDistrettiOptions()}}",
   "topRow": 1,
   "type": "SELECT_WIDGET",
   "version": 1,

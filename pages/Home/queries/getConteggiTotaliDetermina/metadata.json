@@ -5,12 +5,12 @@
   "pluginType": "DB",
   "unpublishedAction": {
     "actionConfiguration": {
-      "body": "SELECT sum (m.importo) as totale, count(*) as quanti FROM movimento m, istanza i, conto c, anagrafica a, distretto d where i.id_distretto = d.id AND m.id_conto = c.id AND c.id_istanza = i.id AND i.id_anagrafica_disabile = a.id AND m.id_determina = {{ determina_select.selectedOptionValue}} AND i.id_distretto = {{distretto_select.selectedOptionValue}} AND m.is_movimento_bancario = true",
+      "body": "SELECT sum (m.importo) as totale, count(*) as quanti FROM movimento m, istanza i, conto c, anagrafica a, distretto d where i.id_distretto = d.id AND m.id_conto = c.id AND c.id_istanza = i.id AND i.id_anagrafica_disabile = a.id AND m.id_determina = {{ determina_select.selectedOptionValue}} {{ (distretto_select.selectedOptionValue && distretto_select.selectedOptionValue !== \"all\") ? (\" AND i.id_distretto = \"+ distretto_select.selectedOptionValue) : \"\" }} AND m.is_movimento_bancario = true",
       "encodeParamsToggle": true,
       "paginationType": "NONE",
       "pluginSpecifiedTemplates": [
         {
-          "value": true
+          "value": false
         }
       ],
       "timeoutInMillisecond": 10000

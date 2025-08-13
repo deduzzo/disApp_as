@@ -21,6 +21,6 @@ LEFT JOIN
     ) isee ON isee.id_istanza = i.id
 WHERE 
     i.chiuso = false 
-        {{ distretto_select.selectedOptionValue && distretto_select.selectedOptionValu  !== "all" ? "AND i.id_distretto = " + distretto_select.selectedOptionValue : "" }}
+        {{ distretto_select.selectedOptionValue && distretto_select.selectedOptionValue  !== "all" ? "AND i.id_distretto = " + distretto_select.selectedOptionValue : "" }}
 ORDER BY 
     i.attivo DESC, nominativo ASC;

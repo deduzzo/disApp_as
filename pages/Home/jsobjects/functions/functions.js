@@ -1,7 +1,7 @@
 export default {
 	secret: "UxZ>69'[Tu<6",
 	distrettiMap: { byUnique: {}, byId: {} },
-		livelli: {
+	livelli: {
 		"100": "SuperAdmin",
 		"1": "Utente",
 		"2": "Admin Distretto",
@@ -38,16 +38,18 @@ export default {
 		storeValue('selectedTab',"Elenco");
 		storeValue("selectedRowId",null)
 		this.allFilesIstanza = [];
-		await getAllDistretti.run();
-		await this.getDistrettiMap();    
+		if (!getAllDistretti.data) {
+			await getAllDistretti.run();
+			await this.getDistrettiMap();
+		}
 		await this.verifyTokenExpires();
 		//this.distrettiDataSelect = this.getDistrettiMap();
-		await getAllIstanzeDistretto.run({distretto: this.userData.distretto});
+		await getAllIstanzeDistretto.run({distretto: distretto_select.selectedOptionValue});
 		await getAllDeterminePagamenti.run();
 		await getIseeIstanza.run();
 		await getLastValidIsee.run();
 	},
-	
+
 	async getDistrettiMap() {
 		this.distrettiMap= { byUnique: {}, byId: {} };
 		// se serve aggiornare il dataset, decommenta:
@@ -117,7 +119,7 @@ export default {
 					mail: decoded.data.mail,
 					distrettoRaw: decoded.data.id_distretto,
 					// se non è stato cambiato distretto uso il primo, altrimenti mantengo quello selezionato
-					codDistretto: parseInt(Object.keys(distretti)[0]),
+					codDistretto: distretto_select.selectedOptionValue ?? parseInt(Object.keys(distretti)[0]),
 					distretto: this.distrettiMap.byId[Object.keys(distretti)[0]].unique,
 					distrettoTxt: distretti[Object.keys(distretti)[0]]
 				};
@@ -142,7 +144,7 @@ export default {
 		return {expired}
 
 	},
-		getDistrettiFromIds(distrettiString, separator = ",") {
+	getDistrettiFromIds(distrettiString, separator = ",") {
 		const ids = distrettiString.split(separator);
 		return ids.reduce((acc, id) => {
 			const d = this.distrettiMap.byUnique[id];
@@ -226,7 +228,7 @@ export default {
 			})
 		})
 	},
-	
+
 	textToBinaryArray(binaryData) {
 		// Assumi che 'binaryData' sia un oggetto tipo stringa o un buffer di dati binari
 		const len = binaryData.length;
@@ -250,7 +252,7 @@ export default {
 			let fileName = tipo_nuovo_file_select.selectedOptionValue + "#" + descrizione_file_scheda_txt.text + "#" + file_scheda.files[0].name;
 			const zip = new jszip();
 			let fileData = null;
-	    if (file_scheda.files[0].size !== file_scheda.files[0].data.length && 
+			if (file_scheda.files[0].size !== file_scheda.files[0].data.length && 
 					file_scheda.files[0].data.length < 100 && 
 					file_scheda.files[0].data.startsWith("blob:"))
 				fileData = await this.getBinaryStringFromBlobUrl(file_scheda.files[0].data)

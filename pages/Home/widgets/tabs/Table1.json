@@ -38,12 +38,14 @@
     "importo",
     "periodo_da",
     "periodo_a",
-    "id"
+    "id",
+    "note"
   ],
-  "columnUpdatedAt": 1728462918282,
+  "columnUpdatedAt": 1755069300000,
   "columnWidthMap": {
     "codice_fiscale": 198,
-    "importo": 111
+    "importo": 102,
+    "periodo_a": 106
   },
   "defaultPageSize": 0,
   "defaultSelectedRowIndex": 0,
@@ -90,6 +92,9 @@
     },
     {
       "key": "isVisible"
+    },
+    {
+      "key": "primaryColumns.note.computedValue"
     }
   ],
   "dynamicPropertyPathList": [
@@ -322,6 +327,37 @@
       "originalId": "nome",
       "sticky": "",
       "textColor": "",
+      "textSize": "0.875rem",
+      "thousandSeparator": true,
+      "validation": {},
+      "verticalAlignment": "CENTER",
+      "width": 150
+    },
+    "note": {
+      "alias": "note",
+      "allowCellWrapping": false,
+      "allowSameOptionsInNewRow": true,
+      "columnType": "text",
+      "computedValue": "{{(() => { const tableData = Table1.processedTableData || []; return tableData.length > 0 ? tableData.map((currentRow, currentIndex) => (currentRow[\"note\"])) : note })()}}",
+      "currencyCode": "USD",
+      "decimals": 0,
+      "enableFilter": true,
+      "enableSort": true,
+      "horizontalAlignment": "LEFT",
+      "id": "note",
+      "index": 8,
+      "isCellEditable": false,
+      "isCellVisible": true,
+      "isDerived": false,
+      "isDisabled": false,
+      "isDiscardVisible": true,
+      "isEditable": false,
+      "isSaveVisible": true,
+      "isVisible": true,
+      "label": "note",
+      "notation": "standard",
+      "originalId": "note",
+      "sticky": "",
       "textSize": "0.875rem",
       "thousandSeparator": true,
       "validation": {},
